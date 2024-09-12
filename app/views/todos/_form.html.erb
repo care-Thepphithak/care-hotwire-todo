@@ -18,6 +18,11 @@
       <%= form.date_field :due_date, class: "shadow rounded-md border border-gray-300 outline-none px-2 py-2 mt-2 ml-3 w-[38px] bg-transparent text-transparent select-none hover:border-blue-600" %>
       <%= form.submit class: "rounded-lg px-3 py-2 mt-2 ml-0 min-[400px]:ml-3 text-blue-600 hover:text-white border border-blue-600 hover:bg-blue-600 font-medium cursor-pointer" %>
     </div>
+    <div>
+      <% unless todo.due_date.nil? %>
+        <h3 class="text-gray-500 text-sm mt-2">due date: <%= todo.due_date.strftime("%d %B %Y")%> </h3>
+      <% end %>
+    </div>
   </div>
 
 <% end %>
