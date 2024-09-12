@@ -16,7 +16,14 @@
     <div class="flex flex-col min-[400px]:flex-row">
       <%= form.text_field :name, class: "shadow rounded-md border border-gray-300 outline-none px-3 py-2 mt-2 w-full bg-transparent hover:border-blue-600" %>
       <%= form.date_field :due_date, min: Date.today.to_s, class: "shadow rounded-md border border-gray-300 outline-none px-2 py-2 mt-2 ml-3 w-[38px] bg-transparent text-transparent select-none hover:border-blue-600" %>
-      <%= form.submit class: "rounded-lg px-3 py-2 mt-2 ml-0 min-[400px]:ml-3 text-blue-600 hover:text-white border border-blue-600 hover:bg-blue-600 font-medium cursor-pointer" %>
+    </div>
+    <div class="flex items-center mt-2">
+      <div class="relative w-full">
+          <%= form.collection_select :user_id, User.all, :id, :name, { prompt: "Designate to" }, { class: "shadow rounded-md border border-gray-300 outline-none px-2 py-2 mt-2 w-full bg-transparent hover:border-blue-600", required: true } %>
+      </div>
+      <div>
+        <%= form.submit class: "rounded-lg px-3 py-2 mt-2 ml-0 min-[400px]:ml-3 w-4/12 text-blue-600 hover:text-white border border-blue-600 hover:bg-blue-600 font-medium cursor-pointer" %>
+      </div>
     </div>
     <div>
       <% unless todo.due_date.nil? %>
