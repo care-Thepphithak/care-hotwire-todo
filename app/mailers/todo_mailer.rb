@@ -1,7 +1,7 @@
 class TodoMailer < ApplicationMailer
-  default from: 'todo@dds.gom'
 
   def todo_assigned(todo)
+    Rails.logger.info "Sending email to #{todo.user.email}"
     @todo = todo
     @user = todo.user
     mail(to: @user.email, subject: 'You have been assigned a new Todo')
