@@ -6,6 +6,8 @@ class Todo < ApplicationRecord
         complete: 1
     }
 
+    after_create :send_assignment_email
+
     private
 
     def send_assignment_email
