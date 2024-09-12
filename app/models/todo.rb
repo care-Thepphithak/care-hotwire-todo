@@ -11,6 +11,6 @@ class Todo < ApplicationRecord
     private
 
     def send_assignment_email
-        TodoMailer.todo_assigned(self).deliver_now
+        TodoMailer.todo_assigned(self).deliver_later
     end
 end
