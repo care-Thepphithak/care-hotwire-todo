@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hello <%= @user.name %>,</h1>
+    <p>You have been assigned a new Todo:</p>
+    <p><strong>Todo:</strong> <%= @todo.name %></p>
+    <p><strong>Due Date:</strong> <%= @todo.due_date.strftime("%d %B %Y") %></p>
+    <p>Please make sure to complete it by the due date.</p>
+  </body>
+</html>
