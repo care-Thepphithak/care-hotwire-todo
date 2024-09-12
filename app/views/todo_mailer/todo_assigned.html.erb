@@ -7,7 +7,7 @@
     <h1>Hello <%= @user.name %>,</h1>
     <p>You have been assigned a new Todo:</p>
     <p><strong>Todo:</strong> <%= @todo.name %></p>
-    <p><strong>Due Date:</strong> <%= @todo.due_date.strftime("%d %B %Y") %></p>
+    <p><strong>Due Date:</strong> <%= @todo.due_date.present? ? @todo.due_date.strftime("%d %B %Y") : "no due date you can do whenever you want!!" %></p>
     <p>Please make sure to complete it by the due date.</p>
   </body>
 </html>
