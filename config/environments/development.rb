@@ -44,8 +44,8 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: "email-smtp.ap-southeast-1.amazonaws.com",
     port: 587,
-    domain: "noreply@odds.team",
-    authentication: "plain",
+    domain: "3tow1c-ddsgom.uk",
+    authentication: 'plain',
     enable_starttls_auto: true,
     user_name: ENV["GMAIL_USERNAME"],
     password: ENV["GMAIL_PASSWORD"],
