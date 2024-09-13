@@ -10,14 +10,14 @@ default: &default
   username: <%= ENV['POSTGRES_USER'] %>
   password: <%= ENV['POSTGRES_PASSWORD'] %>
   host: <%= ENV['POSTGRES_HOST'] %>
-  port: 5432
+  port: 5433
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: hotwire_todo_development
+  database: hotwire_todo
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
