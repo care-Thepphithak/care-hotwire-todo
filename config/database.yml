@@ -10,7 +10,7 @@ default: &default
   username: <%= ENV['POSTGRES_USER'] %>
   password: <%= ENV['POSTGRES_PASSWORD'] %>
   host: <%= ENV['POSTGRES_HOST'] %>
-  port: 5433
+  port: <%= ENV['POSTGRES_PORT'] %>
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
