@@ -1,20 +1,27 @@
 name: hotwire-todo-compose
 services:
-  # web:
-  #   build: 
-  #     context: .
-  #     dockerfile: Dockerfile
-  #   environment:
-  #     - SECRET_KEY_BASE=dummy
-  #     - DATABASE_URL=postgres://hotwire_todo:postgres@db:5432/hotwire_todo
-  #   volumes:
-  #     - .:/myapp
-  #   ports:
-  #     - "3000:3000"
-  #   networks:
-  #     - database
-  #   depends_on:
-  #     - db
+  web:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - RAILS_ENV=${RAILS_ENV}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
+      - GMAIL_USERNAME=${GMAIL_USERNAME}
+      - GMAIL_PASSWORD=${GMAIL_PASSWORD}
+    command: bundle exec sidekiq -C config/sidekiq.yml
+    volumes:
+      - .:/myapp
+    ports:
+      - "3000:3000"
+    networks:
+      - database
+    depends_on:
+      - db
 
   redis:
     image: redis:alpine3.20
@@ -26,10 +33,9 @@ services:
   db:
     image: postgres:14
     environment:
-      POSTGRES_USER: hotwire_todo
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: hotwire_todo
-      POSTGRES_HOST: db
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
     ports:
       - "5433:5432"
     volumes:
