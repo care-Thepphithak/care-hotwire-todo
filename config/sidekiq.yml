@@ -1,0 +1,7 @@
+:scheduler:
+  :schedule:
+    todo_scheduler:
+      cron: "45 9 * * *" # Run at 9:45 AM every day
+      class: "TodoDueCheckerWorker"
+      description: "Check due date of todos and send notification email to users"
+      timezone: "Asia/Bangkok"
