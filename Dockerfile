@@ -2,7 +2,7 @@ FROM ruby:3.3.2-alpine AS build
 WORKDIR /myapp
 
 # Set environment variables
-ENV RAILS_ENV=production
+ENV RAILS_ENV=development
 
 # Install necessary packages to build gems and assets
 RUN apk add --no-cache \
