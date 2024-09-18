@@ -25,7 +25,7 @@ services:
           ./bin/rails db:migrate;
           ./bin/rails db:prepare;
           echo "Database created and migrated";
-          ./bin/rails server -b '0.0.0.0' & bundle exec sidekiq -C config/sidekiq.yml
+          ./bin/rails server -b '0.0.0.0' & bundle exec sidekiq -C config/sidekiq.yml;
         "
     volumes:
       - .:/myapp
