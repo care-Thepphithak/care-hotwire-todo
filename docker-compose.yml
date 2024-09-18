@@ -18,8 +18,6 @@ services:
       - SECRET_KEY_BASE=${SECRET_KEY_BASE}
     # command: sh -c "./bin/rails server -b '0.0.0.0' & bundle exec sidekiq -C config/sidekiq.yml"
         
-    volumes:
-      - .:/myapp
     ports:
       - "3000:3000"
     networks:
