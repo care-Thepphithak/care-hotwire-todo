@@ -56,5 +56,14 @@ ARG SECRET_KEY_BASE
 ENV SECRET_KEY_BASE=${SECRET_KEY_BASE}
 ENV RAILS_ENV=production
 
+RUN chmod +x /myapp/bin/docker-entrypoint
+
+# Run Docker entrypoint script
+ENTRYPOINT ["/myapp/bin/docker-entrypoint"]
+
 # Expose port 3000
 EXPOSE 3000
+
+# Start the Rails server
+# CMD ["./bin/rails", "server", "-b", "0.0.0.0"]
+# CMD ["sh", "-c", "./bin/rails server -b '0.0.0.0' & bundle exec sidekiq -C config/sidekiq.yml"]
