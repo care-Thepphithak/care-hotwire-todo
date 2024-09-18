@@ -4,6 +4,8 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
+      args:
+        - SECRET_KEY_BASE=${SECRET_KEY_BASE}
     environment:
       - RAILS_ENV=${RAILS_ENV}
       - POSTGRES_USER=${POSTGRES_USER}
@@ -13,7 +15,18 @@ services:
       - POSTGRES_PORT=5432
       - GMAIL_USERNAME=${GMAIL_USERNAME}
       - GMAIL_PASSWORD=${GMAIL_PASSWORD}
-    command: sh -c "bundle exec rails s -p 3000 -b '0.0.0.0' & bundle exec sidekiq -C config/sidekiq.yml"
+      - SECRET_KEY_BASE=${SECRET_KEY_BASE}
+    command: >
+        sh -c "
+          if [ -f tmp/pids/server.pid ]; then
+            rm tmp/pids/server.pid;
+          fi;
+          ./bin/rails db:create;
+          ./bin/rails db:migrate;
+          ./bin/rails db:prepare;
+          echo "Database created and migrated";
+          ./bin/rails server -b '0.0.0.0' & bundle exec sidekiq -C config/sidekiq.yml
+        "
     volumes:
       - .:/myapp
     ports:
