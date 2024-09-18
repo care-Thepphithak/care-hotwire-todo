@@ -65,5 +65,4 @@ ENTRYPOINT ["/myapp/bin/docker-entrypoint"]
 EXPOSE 3000
 
 # Start the Rails server
-# CMD ["./bin/rails", "server", "-b", "0.0.0.0"]
-# CMD ["sh", "-c", "./bin/rails server -b '0.0.0.0' & bundle exec sidekiq -C config/sidekiq.yml"]
+CMD ["./bin/rails", "server", "-b", "0.0.0.0"]
