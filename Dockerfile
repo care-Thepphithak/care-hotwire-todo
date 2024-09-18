@@ -33,7 +33,7 @@ RUN yarn install --frozen-lockfile
 
 # Precompile assets and then remove unnecessary files
 ARG SECRET_KEY_BASE
-RUN SECRET_KEY_BASE=${SECRET_KEY_BASE} bundle exec rails assets:precompile && \
+RUN SECRET_KEY_BASE=${SECRET_KEY_BASE} RAILS_ENV=production bundle exec rails assets:precompile && \
     rm -rf node_modules tmp/cache vendor/assets test spec
 
 FROM ruby:3.3.2-alpine
