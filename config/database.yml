@@ -7,16 +7,16 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: <%= ENV['POSTGRES_USER'] %>
-  password: <%= ENV['POSTGRES_PASSWORD'] %>
-  host: <%= ENV['POSTGRES_HOST'] %>
-  port: <%= ENV['POSTGRES_PORT'] %>
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
+  username: <%= ENV['DEV_POSTGRES_USER'] %>
+  password: <%= ENV['DEV_POSTGRES_PASSWORD'] %>
+  host: <%= ENV['DEV_POSTGRES_HOST'] %>
+  port: <%= ENV['DEV_POSTGRES_PORT'] %>
   database: hotwire_todo
 
 # Warning: The database defined as "test" will be erased and
@@ -28,4 +28,8 @@ test:
 
 production:
   <<: *default
+  username: <%= ENV['POSTGRES_USER'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  host: <%= ENV['POSTGRES_HOST'] %>
+  port: <%= ENV['POSTGRES_PORT'] %>
   database: hotwire_todo_production
