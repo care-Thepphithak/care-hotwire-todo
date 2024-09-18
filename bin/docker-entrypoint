@@ -12,4 +12,9 @@ if [ "${1}" == "./bin/rails" ] && [ "${2}" == "server" ]; then
   ./bin/rails db:prepare
 fi
 
+# start sidekiq if running db:prepare
+if [ "${1}" == "./bin/rails" ] && [ "${2}" == "db:prepare" ]; then
+  bundle exec sidekiq -C config/sidekiq.yml
+fi
+
 exec "${@}"
