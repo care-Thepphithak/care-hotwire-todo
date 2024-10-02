@@ -1,5 +1,19 @@
-<div id="chat-container">
-  <h1>Chat Room</h1>
-  <div id="messages">
+<div id="chat-container" data-controller="chat">
+  <div class="flex items-end justify-between">
+    <h1 class="text-4xl pb-4">Chat Room</h1>
+    <input data-chat-target="userName" data-action="input->chat#handleUserNameChange" class="w-1/4 shadow rounded-md border border-gray-300 outline-none px-3 py-2 mt-2 bg-transparent hover:border-blue-600" type="text" placeholder="Your name">
   </div>
+
+  <div data-chat-target="messages" style="padding-left: 12px; padding-right: 12px">
+    <p class="text-gray-600 py-8" data-chat-target="noMsg" >no messages</p>
+  </div>
+
+  <div>
+    <div class="flex flex-col min-[400px]:flex-row">
+      <input data-chat-target="msgInput" data-action="input->chat#removeError focus->chat#handleFocus blur->chat#handleUnfocus" class="shadow rounded-md border border-gray-300 outline-none px-3 py-2 mt-2 w-full bg-transparent hover:border-blue-600" type="text" placeholder="Type your message here">
+      <button data-action="click->chat#sendMessage" class="rounded-lg px-3 py-2 mt-2 ml-2 text-blue-600 hover:text-white border border-blue-600 hover:bg-blue-600 font-medium cursor-pointer">Send</button>
+    </div>
+    <p data-chat-target="error" class="text-red-500"></p>
+  </div>
+
 </div>

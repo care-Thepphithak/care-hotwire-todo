@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+#chat-msgs {
+    border-radius: 0.5rem; /* rounded-lg */
+    padding-left: 0.75rem; /* px-3 */
+    padding-right: 0.75rem; /* px-3 */
+    padding-top: 0.5rem; /* py-2 */
+    padding-bottom: 0.5rem; /* py-2 */
+    margin-top: 0.5rem; /* mt-2 */
+    margin-left: 0.5rem; /* ml-2 */
+    color: #2563eb; /* text-blue-600 */
+    border: 1px solid #2563eb; /* border border-blue-600 */
+    font-weight: 500; /* font-medium */
+}
