@@ -47,6 +47,12 @@ export default class extends Controller {
     console.log("Handling user name change...");
   }
 
+  handleKeyup(event) {
+    if (event.key === "Enter") {
+      this.sendMessage();
+    }
+  }
+
   removeError() {
     if (this.errorTarget.textContent.length > 0) {
       console.log("Removing error");
@@ -58,7 +64,7 @@ export default class extends Controller {
     console.log(data);
     this.noMsgTarget.textContent = "";
     console.log("Displaying message...");
-    
+
     const messageContainer = document.createElement("div");
     const dateElement = document.createElement("span");
     const userNameElement = document.createElement("span");

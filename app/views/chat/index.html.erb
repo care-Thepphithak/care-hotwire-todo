@@ -10,7 +10,7 @@
 
   <div>
     <div class="flex flex-col min-[400px]:flex-row">
-      <input data-chat-target="msgInput" data-action="input->chat#removeError focus->chat#handleFocus blur->chat#handleUnfocus" class="shadow rounded-md border border-gray-300 outline-none px-3 py-2 mt-2 w-full bg-transparent hover:border-blue-600" type="text" placeholder="Type your message here">
+      <input data-chat-target="msgInput" data-action="input->chat#removeError focus->chat#handleFocus blur->chat#handleUnfocus keyup->chat#handleKeyup" class="shadow rounded-md border border-gray-300 outline-none px-3 py-2 mt-2 w-full bg-transparent hover:border-blue-600" type="text" placeholder="Type your message here">
       <button data-action="click->chat#sendMessage" class="rounded-lg px-3 py-2 mt-2 ml-2 text-blue-600 hover:text-white border border-blue-600 hover:bg-blue-600 font-medium cursor-pointer">Send</button>
     </div>
     <p data-chat-target="error" class="text-red-500"></p>
