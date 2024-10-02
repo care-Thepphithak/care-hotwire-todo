@@ -1,4 +1,4 @@
-<div class="w-full">
+<div class="w-full" data-controller="todo">
   <h2 class="text-6xl text-blue-600 font-thin text-center uppercase mb-8">
     Todos
   </h2>
@@ -8,12 +8,14 @@
         <li>
           <%= link_to "Incomplete",
             todos_path(status: "incomplete"),
+            data: { todo_target: 'incomplete' },
             class: "inline-block pb-2 px-4 text-sm font-medium text-center text-gray-500 border-b-2 hover:text-gray-600 border-b-2 #{ params[:status] != "complete" ? 'border-blue-600' : 'border-transparent hover:border-gray-300'}"
           %>
         </li>
         <li>
           <%= link_to "Complete",
             todos_path(status: "complete"),
+            data: { todo_target: 'complete' },
             class: "inline-block pb-2 px-4 text-sm font-medium text-center text-gray-500 border-b-2 hover:text-gray-600 border-b-2 #{ params[:status] == "complete" ? 'border-blue-600' : 'border-transparent hover:border-gray-300'}"
           %>
         </li>
@@ -25,7 +27,7 @@
         <%= render "form", todo: Todo.new %>
       </div>
     <% end %>
-    <ul id="todos-list">
+    <ul id="todos-list" data-todo-target="list">
       <%= render @todos %>
     </ul>
   <% end %>
