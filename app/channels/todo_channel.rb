@@ -6,8 +6,4 @@ class TodoChannel < ApplicationCable::Channel
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
   end
-
-  def retrieve_todos
-    ActionCable.server.broadcast 'todo_channel', { todos: Todo.all }
-  end
 end
