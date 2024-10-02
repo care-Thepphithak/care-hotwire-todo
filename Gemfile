@@ -8,7 +8,7 @@ ruby "3.3.2"
 # Install PostgreSQL by default
 gem 'pg', '~> 1.5', '>= 1.5.4'
 
-# gem 'activestorage', require: 'active_storage'
+gem 'activestorage', require: 'active_storage'
 
 gem 'actionmailer', require: 'action_mailer'
 
