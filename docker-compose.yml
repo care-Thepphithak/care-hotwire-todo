@@ -16,6 +16,7 @@ services:
       - GMAIL_USERNAME=${GMAIL_USERNAME}
       - GMAIL_PASSWORD=${GMAIL_PASSWORD}
       - SECRET_KEY_BASE=${SECRET_KEY_BASE}
+      - CABLE_EMAIL=${CABLE_EMAIL}
     # command: sh -c "./bin/rails server -b '0.0.0.0' & bundle exec sidekiq -C config/sidekiq.yml"
         
     ports:
